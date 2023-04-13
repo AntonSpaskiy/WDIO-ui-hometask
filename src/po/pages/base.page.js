@@ -1,12 +1,12 @@
-const HeaderComponent = require('./../components/common/header.component')
-const HeaderSearchComponent = require('./../components/common/header.search.component')
+const { Header, HeaderSearch, SearchResults } = require('./../components/')
 
 class BasePage {
 
     constructor(url) {
         this.url = url;
-       // this.headerComponent = new HeaderComponent();
-        //this.headerSearchComponent = new HeaderSearchComponent()
+        this.header = new Header();
+        this.headerSearch = new HeaderSearch();
+        this.searchResults = new SearchResults ();
     };
 
     open() {

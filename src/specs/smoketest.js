@@ -1,12 +1,9 @@
-const HomePage = require('../po/pages/home.page')
-const homePage = new HomePage()
-const SearchPage = require('../po/pages/search.page')
-const searchPage = new SearchPage()
+const {pages} = require('./../po/')
 
 describe('Hometask', () => {
 
     beforeEach(async () => {
-        await homePage.open();
+        await pages('home').open();
     }),
 
     it('Check title of the website', async () => {
@@ -14,16 +11,15 @@ describe('Hometask', () => {
     });
 
     it('Check that the header logo is existing', async () => {
-        await expect(homePage.headerComponent.headerLogo).toBeExisting()
+        await expect(pages('home').header.headerLogo).toBeExisting()
     });
 
     it('Check that the text "RESULTS FOR “AUTOMATION" is existing on search results page', async () => {
-        await homePage.headerComponent.searchBtn.click();
-        await homePage.headerSearchComponent.searchPanelOpened.waitForDisplayed();
-        await homePage.headerSearchComponent.item('searchField').addValue('automation');
-        await homePage.headerSearchComponent.item('searchBtn').click();
-        await expect(searchPage.searchComponent.searchResultsCounter).toHaveTextContaining('result for "automation"', {ignoreCase: true});
+        await pages('home').header.searchBtn.click();
+        await pages('home').headerSearch.searchPanelOpened.waitForDisplayed();
+        await pages('home').headerSearch.item('searchField').click();
+        await pages('home').headerSearch.item('searchField').addValue('automation');
+        await pages('home').headerSearch.item('searchBtn').click();
+        await expect(pages('search').searchResults.searchResultsCounter).toHaveTextContaining('result for "automation"', {ignoreCase: true});
     });
 })
-
-
