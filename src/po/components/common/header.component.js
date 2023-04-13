@@ -1,7 +1,9 @@
-class HeaderComponent {
+const BaseComponent = require('./base.component')
+
+class HeaderComponent extends BaseComponent{
     
-    get rootEl() {
-        return $('.header__content')
+    constructor(){
+        super('.header__content')
     };
     get searchBtn() {
         return this.rootEl.$('button.header-search__button')

@@ -1,9 +1,10 @@
-class HeaderSearchComponent {
+const BaseComponent = require('./base.component')
 
-    get rootEl() {
-        return $('.header-search__panel')
+class HeaderSearchComponent extends BaseComponent {
+    
+    constructor(){
+        super('.header-search__panel')
     };
-
     get searchPanelOpened() {
         return $('.header-search__panel.opened')
     };
