@@ -100,6 +100,7 @@ exports.config = {
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
     baseUrl: 'https://www.epam.com',
+     // default appium port
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 5000,
@@ -110,13 +111,13 @@ exports.config = {
     //
     // Default request retries count
     connectionRetryCount: 3,
+    port: 4555,
     //
     // Test runner services
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver'],
-    
+    services: ['chromedriver', 'appium'],
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks
