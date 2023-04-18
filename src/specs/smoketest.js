@@ -1,4 +1,5 @@
 const {pages} = require('./../po/')
+const functions = require('./../po/helpers/helpers')
 
 describe('Hometask', () => {
 
@@ -18,8 +19,9 @@ describe('Hometask', () => {
         await pages('home').header.searchBtn.click();
         await pages('home').headerSearch.searchPanelOpened.waitForDisplayed();
         await pages('home').headerSearch.item('searchField').click();
-        await pages('home').headerSearch.item('searchField').addValue('automation');
+        await functions.selectInDropdown();
+        // await pages('home').headerSearch.item('searchField').addValue('automation');
         await pages('home').headerSearch.item('searchBtn').click();
-        await expect(pages('search').searchResults.searchResultsCounter).toHaveTextContaining('result for "automation"', {ignoreCase: true});
+        await expect(pages('search').searchResults.searchResultsCounter).toHaveTextContaining(`results for "${functions.searchValue}"`, {ignoreCase: true});
     });
 })

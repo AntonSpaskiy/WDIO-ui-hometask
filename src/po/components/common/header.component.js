@@ -1,6 +1,6 @@
 const BaseComponent = require('./base.component')
 
-class HeaderComponent extends BaseComponent{
+class Header extends BaseComponent{
     
     constructor(){
         super('.header__content')
@@ -12,4 +12,4 @@ class HeaderComponent extends BaseComponent{
         return this.rootEl.$('.header__logo-container')
     }
 }
-module.exports = HeaderComponent;
+module.exports = Header;

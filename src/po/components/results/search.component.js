@@ -1,4 +1,4 @@
-class SearchComponent {
+class SearchResults {
     
     get rootEl() {
         return $('.section__wrapper')
@@ -7,4 +7,4 @@ class SearchComponent {
         return this.rootEl.$('.search-results__counter')
     };
 }
-module.exports = SearchComponent;
+module.exports = SearchResults;
