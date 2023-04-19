@@ -6,9 +6,14 @@ class functions {
         return "Automation"
     }
     
-    async selectInDropdown() {
+    async recentLinkName(){
+        const items = await $$(".frequent-searches__item")
+        const index = Math.floor(Math.random() * items.length)
+        return await items[index].getText()
+    }
+    async selectInDropdown(searchItem) {
     const headerSearch = new HeaderSearch()
-    await headerSearch.item('frequentSearches').$(`li*=${this.searchValue}`).click()
+    await headerSearch.item('frequentSearches').$(`li*=${searchItem}`).click()
 }
 }
 

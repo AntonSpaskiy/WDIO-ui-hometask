@@ -15,7 +15,7 @@ describe('Hometask', () => {
         await expect(pages('home').header.headerLogo).toBeExisting()
     });
 
-    it('Check that the text "RESULTS FOR searchValue" text is existing on search results page after search', async () => {
+    it('Check that the text "RESULTS FOR {searchValue}" text is existing on search results page after search', async () => {
         await pages('home').header.searchBtn.click();
         await pages('home').headerSearch.searchPanelOpened.waitForDisplayed();
         await pages('home').headerSearch.item('searchField').click();
@@ -24,14 +24,13 @@ describe('Hometask', () => {
         await expect(pages('search').searchResults.searchResultsCounter).toHaveTextContaining(`results for "${functions.searchValue}"`, {ignoreCase: true});
     });
 
-    it('Check that the text "RESULTS FOR “AUTOMATION" is existing on search results page after clicking an autosuggestions item', async () => {
+    it('Check that the text "RESULTS FOR {searchValue}" is existing on search results page after clicking an autosuggestions item', async () => {
         await pages('home').header.searchBtn.click();
         await pages('home').headerSearch.searchPanelOpened.waitForDisplayed();
-        await pages('home').headerSearch.item('searchField').click();
-        const recentLinkName = functions.recentLinkName()
+        const recentLinkName = await functions.recentLinkName();
         await functions.selectInDropdown(recentLinkName);
         await pages('home').headerSearch.item('searchBtn').click();
-        await expect(pages('search').searchResults.searchResultsCounter).toHaveTextContaining(`result for "${recentLinkName}"`, {ignoreCase: true});
+        await expect(pages('search').searchResults.searchResultsCounter).toHaveTextContaining(`results for "${recentLinkName}"`, {ignoreCase: true});
         console.log(recentLinkName)
     });
 })
