@@ -1,13 +1,13 @@
-const BaseComponent = require('./base.component')
+const BaseComponent = require('./base.component');
 
 class HeaderSearch extends BaseComponent {
     
     constructor(){
-        super('.header-search__panel')
+        super('.header-search__panel');
     };
 
     get searchPanelOpened() {
-        return $('.header-search__panel.opened')
+        return $('.header-search__panel.opened');
     };
 
     item(param) {
@@ -18,7 +18,7 @@ class HeaderSearch extends BaseComponent {
         };
 
         return this.rootEl.$(selectors[param]);
-    }
-}
+    };
+};
 
 module.exports = HeaderSearch;

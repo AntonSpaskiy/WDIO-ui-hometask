@@ -1,4 +1,4 @@
-const { Header, HeaderSearch, SearchResults } = require('./../components/')
+const { Header, HeaderSearch, SearchResults } = require('./../components/');
 
 class BasePage {
 
@@ -11,7 +11,7 @@ class BasePage {
 
     open() {
         return browser.url(this.url);
-    } 
-}
+    };
+};
 
 module.exports = BasePage;
