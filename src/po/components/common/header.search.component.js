@@ -13,7 +13,7 @@ class HeaderSearch extends BaseComponent {
     item(param) {
         const selectors = {
             searchField: '#new_form_search',
-            searchBtn: 'button.header-search__submit',
+            searchSubmit: 'button.header-search__submit',
             frequentSearches: '.frequent-searches__items'
         };
 

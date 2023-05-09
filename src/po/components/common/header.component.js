@@ -1,15 +1,22 @@
 const BaseComponent = require('./base.component');
 
-class Header extends BaseComponent{
+class Header extends BaseComponent {
     
-    constructor(){
+    constructor() {
         super('.header__content');
     };
-    get searchBtn() {
-        return this.rootEl.$('button.header-search__button');
-    };
-    get headerLogo() {
-        return this.rootEl.$('.header__logo-container');
-    };
+
+    item(param) {
+        const selectors = {
+            searchBtn: 'button.header-search__button',
+            headerLogo: '.header__logo-container',
+            burgerBtn: 'button.hamburger-menu__button',
+            burgerCloseBtn: 'button[aria-expanded="true"]',
+            locationSelectorBtn: 'button.location-selector__button'
+        };
+
+        return this.rootEl.$(selectors[param]);
 };
+};
+
 module.exports = Header;
